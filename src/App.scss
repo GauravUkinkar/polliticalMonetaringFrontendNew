@@ -1,0 +1,29 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --unit: 14px;
+  --max-width: 1400px;
+}
+
+*,
+*::after,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.parent {
+  width: 100%;
+
+  .cont {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0px 10px;
+  }
+}

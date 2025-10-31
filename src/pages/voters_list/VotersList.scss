@@ -1,0 +1,32 @@
+.voters_list {
+  width: 100%;
+  height: auto;
+  padding: 40px 0px;
+
+  .voters_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--unit);
+
+    .top {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--unit);
+
+
+      .prabhak_dropdown{
+        width: 300px;
+        
+      }
+
+      .search{
+        width: calc(100% - 300px - var(--unit));
+        height: 50px;
+      }
+    }
+  }
+}
