@@ -27,3 +27,17 @@ body {
     padding: 0px 10px;
   }
 }
+
+
+.btn{
+  width: auto;
+  padding: 4px 14px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
