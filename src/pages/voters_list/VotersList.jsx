@@ -45,6 +45,21 @@ const columns = [
   return (
     <>
       <div class="voters_list parent">
+
+        <div class="tabs">
+             <div class="tab">
+              गाव नुसार 
+             </div>
+             <div class="tab">
+              गाव नुसार 
+             </div>
+             <div class="tab">
+              गाव नुसार 
+             </div>
+             <div class="tab">
+              गाव नुसार 
+             </div>
+        </div>
         <div class="voters_cont cont">
           <div class="top">
             <div
