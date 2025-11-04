@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./VotersList.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { Table } from "antd";
 const VotersList = () => {
-  const [dropDown, setDropDown] = useState(false);
+
 
   const dataSource = [
   {
@@ -51,39 +51,23 @@ const columns = [
               गाव नुसार 
              </div>
              <div class="tab">
-              गाव नुसार 
+              गणा नुसार 
              </div>
              <div class="tab">
-              गाव नुसार 
+              आडनाव नुसार 
              </div>
              <div class="tab">
-              गाव नुसार 
+              प्रभाक नुसार 
              </div>
         </div>
         <div class="voters_cont cont">
           <div class="top">
-            <div
-              class="prabhak_dropdown"
-              onMouseLeave={() => setDropDown(false)}
-              onClick={() => setDropDown(true)}
-            >
-              <div class="label">
-                Select Prabhak No.
-                <span>
-                  <IoIosArrowDown />
-                </span>
-              </div>
-
-              {dropDown && (
-                <div class="drop_list">
-                  <p>प्रभाग क्र. 3</p>
-                </div>
-              )}
-            </div>
+          
             <div class="search">
               <input type="text" placeholder="Search Voters" />
             </div>
             <div class="btn">Search</div>
+            <div class="btn">Export</div>
           </div>
           <div class="table">
             <Table dataSource={dataSource} columns={columns} />
