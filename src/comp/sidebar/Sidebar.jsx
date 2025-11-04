@@ -34,6 +34,21 @@ const Sidebar = () => {
             >
               {" "}
               {item.name}{" "}
+              {item.children && (
+                <div class="children">
+                  {item.children?.map((child) => (
+                    <Link
+                      className={
+                        location.pathname === child?.path ? "active" : ""
+                      }
+                      to={child.path}
+                    >
+                      {" "}
+                      {child.name}{" "}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </Link>
           ))}
         </div>
