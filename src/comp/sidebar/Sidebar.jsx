@@ -19,6 +19,18 @@ const Sidebar = () => {
           name: "Add Voters",
           path: "/addvoter",
         },
+        {
+          name: "Add Prabhak",
+          path: "/addPrabhak",
+        },
+        {
+          name: "Add Voters",
+          path: "/addvoter",
+        },
+        {
+          name: "Add Voters",
+          path: "/addvoter",
+        },
       ],
     },
   ];
@@ -33,6 +45,7 @@ const Sidebar = () => {
               to={item.path}
             >
               {" "}
+              
               {item.name}{" "}
               {item.children && (
                 <div class="children">

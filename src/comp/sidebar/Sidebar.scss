@@ -25,16 +25,34 @@
       transition: all 0.3s ease-in-out;
       font-weight: 700;
 
-
-      .children{
+      .children {
         width: 100%;
-        padding: 10px;
-        
+        // padding: 10px;
+        display: none;
+        background-color: black;
+        margin-top: 16px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+
+        a {
+          background-color: transparent;
+          color: white;
+                    &:hover {
+            background-color: rgb(255, 106, 51);
+            color: white;
+          }
+        }
       }
 
       &:hover {
         background-color: white;
         color: rgb(255, 106, 51);
+
+        .children {
+          display: flex;
+        }
       }
     }
 
