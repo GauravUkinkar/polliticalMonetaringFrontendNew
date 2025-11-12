@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import "./VotersList.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { Table } from "antd";
-import axios from "axios";
+
 const VotersList = () => {
   const [pagination, setPagination] = useState({
     current: 1,
@@ -10,40 +10,9 @@ const VotersList = () => {
     total: "",
   });
   const [data, setData] = useState();
+  const [filter, setFilter] = useState();
+  const [villageList, setVillageList] = useState();
 
-  // getAll
-  const getAlldata = async (page, size, exportData) => {
-    try {
-      const response = await axios.get(
-        `${
-          import.meta.env.VITE_APP_BACKEND_URL
-        }/voters/voters/all?page=${page}&size=${size}&export=${exportData}`
-      );
-
-      const responseData = response?.data?.data;
-
-      setPagination((prev) => ({
-        ...prev,
-        total: responseData.totalElements,
-      }));
-
-      const filtertaeData = responseData?.content?.map((item, index) => {
-        return {
-          key: index + 1,
-          name: item?.voterEnglishName,
-          gender: item?.gender,
-          age: item?.age,
-        };
-      });
-
-
-      setData(filtertaeData);
-
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const columns = [
     {
@@ -68,26 +37,37 @@ const VotersList = () => {
     },
   ];
 
-  useEffect(() => {
-    getAlldata(pagination.current, pagination.pageSize, false);
-  }, [pagination.current, pagination.pageSize]);
+  // useEffect(() => {
+  //   getAlldata(pagination.current, pagination.pageSize, false);
+  // }, [pagination.current, pagination.pageSize]);
 
-const handleChange = (paginationConfig) => {
-  setPagination((prevConfig) => ({
-    ...prevConfig,
-    current: paginationConfig.current,
-    pageSize: paginationConfig.pageSize,
-  }));
-};
+  const handleChange = (paginationConfig) => {
+    setPagination((prevConfig) => ({
+      ...prevConfig,
+      current: paginationConfig.current,
+      pageSize: paginationConfig.pageSize,
+    }));
+  };
+
+  // get all village
+
+
+
   return (
     <>
       <div class="voters_list parent">
-        <div class="tabs">
-          <div class="tab">गाव नुसार</div>
-          <div class="tab">गणा नुसार</div>
-          <div class="tab">आडनाव नुसार</div>
-          <div class="tab">प्रभाक नुसार</div>
-        </div>
+     
+
+        {filter === "gavnusar" && (
+          <div class="filter_list">
+            {villageList &&
+              villageList?.map((item, index) => (
+                <div key={index} class="filter_item">
+                  {item}
+                </div>
+              ))}
+          </div>
+        )}
         <div class="voters_cont cont">
           <div class="top">
             <div class="search">

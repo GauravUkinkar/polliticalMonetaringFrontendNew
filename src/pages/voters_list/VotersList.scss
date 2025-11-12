@@ -12,7 +12,9 @@
     justify-content: center;
     align-items: center;
     gap: var(--unit);
+    padding: 10px 0px;
     flex-wrap: wrap;
+    border-bottom: 1px solid black;
 
     .tab {
       padding: 10px 14px;
@@ -24,6 +26,20 @@
         border: 1px solid rgb(255, 106, 51);
         background-color: transparent;
       }
+    }
+  }
+
+  .filter_list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--unit);
+
+    .filter_item{
+      padding: 10px 14px;
+      background-color: var(--accent);
+      color: white;
+      cursor: pointer;
     }
   }
 
