@@ -1,7 +1,9 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./VotersList.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { Table } from "antd";
+import { useSearchParams } from "react-router-dom";
+import { getAllvillage } from "../../api/Api";
 
 const VotersList = () => {
   const [pagination, setPagination] = useState({
@@ -9,10 +11,14 @@ const VotersList = () => {
     pageSize: 10,
     total: "",
   });
+
+  const [searchparams] = useSearchParams();
+
+  const query = searchparams.get("query");
+
   const [data, setData] = useState();
   const [filter, setFilter] = useState();
   const [villageList, setVillageList] = useState();
-
 
   const columns = [
     {
@@ -50,14 +56,25 @@ const VotersList = () => {
   };
 
   // get all village
-
-
+  useEffect(() => {
+    if (query === "village") {
+      getAllvillage()
+        .then((res) => {
+          if(res.length > 0){
+            setFilter("gavnusar");
+            setVillageList(res)
+          }
+        
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [searchparams]);
 
   return (
     <>
       <div class="voters_list parent">
-     
-
         {filter === "gavnusar" && (
           <div class="filter_list">
             {villageList &&
